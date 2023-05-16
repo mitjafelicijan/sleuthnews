@@ -26,7 +26,7 @@ struct Story: Hashable, Codable {
 
 class ViewModel: ObservableObject {
     @Published var stories: [Story] = []
-    let serverEndpoint = "http://209.38.255.64"
+    let serverEndpoint = "https://hackernewsaggregateapi.com"
     
     func fetch() {
         guard let url = URL(string: serverEndpoint + "/top-stories.json") else {
