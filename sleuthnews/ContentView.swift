@@ -9,27 +9,38 @@ import SwiftUI
 import Foundation
 
 struct ContentView: View {
-    let titles = newsTitles
+    @StateObject var viewModel = ViewModel()
+    
+    @State var appFreshlyOpened = true
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(titles, id: \.self) { title in
-                    NavigationLink(destination: Text(title)) {
+                ForEach(viewModel.stories, id: \.self) { story in
+                    NavigationLink(destination: StoryDetails(story: story)) {
                         VStack(alignment: .leading) {
-                            Text(title)
-//                            Text("Score: 123")
-//                                .font(.system(size: 12))
-//                                .foregroundColor(.gray)
+                            Text(story.title)
+                            Text("\(story.score) points by \(story.by)")
+                                .font(.system(size: 12))
+                                .foregroundColor(.gray)
+                                .padding(.top, 1)
                         }
-                       
                     }
-                    .padding(5)
                 }
-                .navigationTitle("Top News")
+            }
+            .navigationTitle("Top News")
+            .refreshable {
+                // When user pulls down (gesture) it refreshes data
+                // from the server.
+                viewModel.fetch()
             }
             .onAppear {
-//                APIManager.fetchTopStories(numOfStories: 30)
+                // This ensures that every time user clicks back
+                // data is not fetched from a server.
+                if appFreshlyOpened {
+                    viewModel.fetch()
+                    appFreshlyOpened = false
+                }
             }
         }
     }
