@@ -11,6 +11,8 @@
 		0C622E0E2A13E46E0028C7C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C622E0D2A13E46E0028C7C5 /* ContentView.swift */; };
 		0C622E102A13E46F0028C7C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C622E0F2A13E46F0028C7C5 /* Assets.xcassets */; };
 		0C622E132A13E46F0028C7C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C622E122A13E46F0028C7C5 /* Preview Assets.xcassets */; };
+		0C622E1A2A13E5920028C7C5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C622E192A13E5920028C7C5 /* APIManager.swift */; };
+		0C622E202A1401AF0028C7C5 /* HackerNews in Frameworks */ = {isa = PBXBuildFile; productRef = 0C622E1F2A1401AF0028C7C5 /* HackerNews */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,7 @@
 		0C622E0D2A13E46E0028C7C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0C622E0F2A13E46F0028C7C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C622E122A13E46F0028C7C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0C622E192A13E5920028C7C5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C622E202A1401AF0028C7C5 /* HackerNews in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +39,7 @@
 		0C622DFF2A13E46E0028C7C5 = {
 			isa = PBXGroup;
 			children = (
+				0C622E1B2A13FE680028C7C5 /* Packages */,
 				0C622E0A2A13E46E0028C7C5 /* sleuthnews */,
 				0C622E092A13E46E0028C7C5 /* Products */,
 			);
@@ -53,6 +58,7 @@
 			children = (
 				0C622E0B2A13E46E0028C7C5 /* sleuthnewsApp.swift */,
 				0C622E0D2A13E46E0028C7C5 /* ContentView.swift */,
+				0C622E192A13E5920028C7C5 /* APIManager.swift */,
 				0C622E0F2A13E46F0028C7C5 /* Assets.xcassets */,
 				0C622E112A13E46F0028C7C5 /* Preview Content */,
 			);
@@ -65,6 +71,13 @@
 				0C622E122A13E46F0028C7C5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0C622E1B2A13FE680028C7C5 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +96,9 @@
 			dependencies = (
 			);
 			name = sleuthnews;
+			packageProductDependencies = (
+				0C622E1F2A1401AF0028C7C5 /* HackerNews */,
+			);
 			productName = sleuthnews;
 			productReference = 0C622E082A13E46E0028C7C5 /* sleuthnews.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +127,9 @@
 				Base,
 			);
 			mainGroup = 0C622DFF2A13E46E0028C7C5;
+			packageReferences = (
+				0C622E1E2A1401AF0028C7C5 /* XCRemoteSwiftPackageReference "hackernews-swift-api" */,
+			);
 			productRefGroup = 0C622E092A13E46E0028C7C5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C622E1A2A13E5920028C7C5 /* APIManager.swift in Sources */,
 				0C622E0E2A13E46E0028C7C5 /* ContentView.swift in Sources */,
 				0C622E0C2A13E46E0028C7C5 /* sleuthnewsApp.swift in Sources */,
 			);
@@ -339,6 +359,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0C622E1E2A1401AF0028C7C5 /* XCRemoteSwiftPackageReference "hackernews-swift-api" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattrighetti/hackernews-swift-api";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0C622E1F2A1401AF0028C7C5 /* HackerNews */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C622E1E2A1401AF0028C7C5 /* XCRemoteSwiftPackageReference "hackernews-swift-api" */;
+			productName = HackerNews;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C622E002A13E46E0028C7C5 /* Project object */;
 }

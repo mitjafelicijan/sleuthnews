@@ -6,16 +6,32 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
+    let titles = newsTitles
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                ForEach(titles, id: \.self) { title in
+                    NavigationLink(destination: Text(title)) {
+                        VStack(alignment: .leading) {
+                            Text(title)
+//                            Text("Score: 123")
+//                                .font(.system(size: 12))
+//                                .foregroundColor(.gray)
+                        }
+                       
+                    }
+                    .padding(5)
+                }
+                .navigationTitle("Top News")
+            }
+            .onAppear {
+//                APIManager.fetchTopStories(numOfStories: 30)
+            }
         }
-        .padding()
     }
 }
 
